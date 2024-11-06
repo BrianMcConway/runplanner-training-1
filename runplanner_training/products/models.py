@@ -12,6 +12,9 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     slug = models.SlugField(unique=True)
+    
+    # New order_id field
+    order_id = models.IntegerField(blank=True, null=True, unique=True)
 
     DISTANCE_CHOICES = [
         ('5k', '5k'),
@@ -49,8 +52,7 @@ class Product(models.Model):
         ('5500-6000m', '5500-6000m'),
         ('6000-6500m', '6000-6500m'),
         ('6500-7000m', '6500-7000m'),
-        ('7000-7500m', '7000-7500m'),
-        ('7500-8000m', '7500-8000m'),
+        ('7000-7500m', '7500-8000m'),
         ('8000-8500m', '8000-8500m'),
         ('8500-9000m', '8500-9000m'),
         ('9000-9500m', '9000-9500m'),
@@ -60,7 +62,7 @@ class Product(models.Model):
     distance = models.CharField(max_length=20, choices=DISTANCE_CHOICES, blank=True, null=True)
     difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES, blank=True, null=True)
     terrain = models.CharField(max_length=20, choices=TERRAIN_CHOICES, blank=True, null=True)
-    elevation = models.CharField(max_length=20, choices=ELEVATION_CHOICES, blank=True, null=True)
+    elevation = models.CharField(max_length=20, choices=ELEVATION_CHOICES)  # Required, no blank or null
 
     def __str__(self):
         """String representation of the Product."""

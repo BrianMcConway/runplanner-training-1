@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-*s$s+op0=fz8ei2wyiul+br-ja+mg-k2+xuok1jr1+2*)n*@__
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Allow the Gitpod host and any future dynamic hosts for easier local testing
-ALLOWED_HOSTS = ['8000-brianmcconw-runplannert-r4h6boc9hpm.ws.codeinstitute-ide.net', 'localhost', '127.0.0.1']
-
+# Allowed Hosts
+ALLOWED_HOSTS = [
+    '8000-brianmcconw-runplannert-r4h6boc9hpm.ws.codeinstitute-ide.net',
+    '.herokuapp.com',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,3 +127,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-brianmcconw-runplannert-r4h6boc9hpm.ws.codeinstitute-ide.net',
+]
+
